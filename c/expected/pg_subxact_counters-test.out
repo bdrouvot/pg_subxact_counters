@@ -1,0 +1,13 @@
+CREATE EXTENSION pg_subxact_counters;
+begin;
+savepoint a;
+savepoint b;
+savepoint c;
+rollback to savepoint a;
+commit;
+select * from pg_subxact_counters();
+ subxact_start | subxact_commit | subxact_abort | subxact_overflow 
+---------------+----------------+---------------+------------------
+             4 |              1 |             3 |                0
+(1 row)
+

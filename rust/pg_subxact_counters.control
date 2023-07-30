@@ -1,0 +1,5 @@
+comment = 'pg_subxact_counters:  Created by pgrx'
+default_version = '@CARGO_VERSION@'
+module_pathname = '$libdir/pg_subxact_counters'
+relocatable = false
+superuser = true
