@@ -113,6 +113,13 @@ sxc_shmem_and_init(void)
 void
 _PG_init(void)
 {
+
+	if (!process_shared_preload_libraries_in_progress)
+	{
+		 ereport(ERROR, (errmsg("pg_subxact_counters can only be loaded via shared_preload_libraries"),
+						 errhint("Add pg_subxact_counters to shared_preload_libraries configuration "
+								 "variable in postgresql.conf.")));
+	}
 #if PG_VERSION_NUM < 150000
 	sxc_shmem_request();
 #endif
