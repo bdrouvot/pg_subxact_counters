@@ -19,6 +19,7 @@
 #include "miscadmin.h"
 #include "access/xact.h"
 #include "storage/proc.h"
+#include "catalog/pg_type.h"
 
 PG_MODULE_MAGIC;
 PG_FUNCTION_INFO_V1(pg_subxact_counters);
